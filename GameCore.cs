@@ -209,7 +209,7 @@ namespace GAME140_TextAdventure
             controlDeck.AddExitToRoom("north", 5);
             worldState.Rooms.Add(controlDeck); // Room index 4
 
-            // Keep the current win action working until we change it.
+            // Create the room where the player can escape.
             RoomData escapeShuttle = new RoomData(
                 "Escape Shuttle",
                 "A small escape shuttle waits in the launch bay. " +
@@ -414,7 +414,7 @@ namespace GAME140_TextAdventure
                 }
                 else
                 {
-                    // Create the room where the player can escape.
+                    // Tell the player to find the escape shuttle.
                     Console.WriteLine(
                         "I can't escape here. I need to reach the escape shuttle.");
                 }
