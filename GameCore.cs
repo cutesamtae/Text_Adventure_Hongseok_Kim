@@ -30,6 +30,7 @@ namespace GAME140_TextAdventure
         /// </summary>
         /// <param name="name">The name used to choose this exit.</param>
         /// <param name="targetRoomIndex">The index of the room this exit leads to.</param>
+        /// <param name="isLocked">Whether this exit needs a keycard.</param>
         public RoomExitData(string name, int targetRoomIndex, bool isLocked)
         {
             Name = name;
@@ -53,6 +54,13 @@ namespace GAME140_TextAdventure
         public bool HasKeycard;
         public bool CanEscape;
 
+        /// <summary>
+        /// Sets the room name, description, items, and exits.
+        /// </summary>
+        /// <param name="name">The room name.</param>
+        /// <param name="description">The room description.</param>
+        /// <param name="hasKeycard">Whether this room has a keycard.</param>
+        /// <param name="canEscape">Whether the player can escape here.</param>
         public RoomData(string name, string description, bool hasKeycard = false, bool canEscape = false)
         {
             Name = name;
@@ -329,12 +337,10 @@ namespace GAME140_TextAdventure
 
                 }
             }
-
-
         }
 
         /// <summary>
-        /// Handles movement, picking up the key, and dancing to win.
+        /// Handles movement, picking up the keycard, and escaping.
         /// </summary>
         public static void UpdateGame(ref PlayerState playerState, 
                                       ref WorldState worldState)
@@ -408,6 +414,7 @@ namespace GAME140_TextAdventure
                 }
                 else
                 {
+                    // Create the room where the player can escape.
                     Console.WriteLine(
                         "I can't escape here. I need to reach the escape shuttle.");
                 }

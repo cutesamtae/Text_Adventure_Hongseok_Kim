@@ -10,6 +10,9 @@ namespace GAME140_TextAdventure
 {
     internal class Program
     {
+        /// <summary>
+        /// Starts the game and runs the game loop.
+        /// </summary>
         static void Main(string[] args) 
         {
             PlayerState playerState = new PlayerState();
